@@ -1,0 +1,12 @@
+{
+    "name": "cubrein",
+    "version": "0.0.1",
+    "private": false,
+    "scripts": {
+        "dev": "node index.js"
+    },
+    "dependencies": {
+        "@cubejs-backend/mysql-driver": "^0.18.17",
+        "@cubejs-backend/server": "^0.18.17"
+    }
+}
