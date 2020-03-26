@@ -17,10 +17,7 @@ RUN ls -la
 
 FROM alpine:3.11
 
-ENV LOGINSRV_HOST=0.0.0.0
-ENV LOGINSRV_PORT=8080
-
-EXPOSE 8080
+EXPOSE 6789
 
 COPY --from=builder /brauth/brauth /
 

@@ -18,6 +18,6 @@ services:
     links:
       - brauth
     environment:
-      DOMAINS: "brauth.minsky.cc -> http://brauth:8080"
+      DOMAINS: "brauth.minsky.cc -> http://brauth:6789"
       # STAGE: "production"
       #FORCE_RENEW: "true"
