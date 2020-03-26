@@ -1,0 +1,23 @@
+version: "3"
+services:
+  brauth:
+    build: ./brauth
+    restart: always
+    environment:
+      PRODUCTION: "true"
+      VAULT_ADDRESS: ${VAULT_ADDRESS}
+      VAULT_TOKEN: ${VAULT_TOKEN}
+    volumes:
+      - ./brauth:/etc/brauth
+  portal:
+    image: steveltn/https-portal
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+    links:
+      - brauth
+    environment:
+      DOMAINS: "brauth.minsky.cc -> http://brauth:8080"
+      # STAGE: "production"
+      #FORCE_RENEW: "true"
