@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NextPage } from "next";
 import Head from "next/head";
 
@@ -11,6 +11,7 @@ import Text from "../components/Text";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import GithubButton from "../components/GithubButton";
+import axios from "axios";
 
 interface BackgroundProps {
     font: string;
@@ -33,6 +34,23 @@ const Background = styled.div<BackgroundProps>`
 
 const MainPage: NextPage = () => {
     const theme = useTheme();
+
+    useEffect(() => {
+        const search = window.location.search;
+        const params = new URLSearchParams(search);
+        const code = params.get("code");
+        const state = params.get("state");
+
+        console.log(code, state);
+
+        if (code !== "" && state !== "") {
+            // start github sign in
+            axios
+                .get(`https://brauth.minsky.cc/login/github?code=${code}&state=${state}`)
+                .then(r => console.log(r))
+                .catch(err => console.log(err));
+        }
+    }, []);
 
     console.log(theme);
     return (
@@ -70,7 +88,7 @@ const MainPage: NextPage = () => {
                             </Text>
                         </div>
                         <div style={{ marginTop: "0.2rem", marginBottom: "1rem" }}>
-                            <GithubButton />
+                            <GithubButton onClick={() => open("https://brauth.minsky.cc/login/github")} />
                         </div>
                         <div style={{ fontFamily: theme.fontFamilyNormal, marginBottom: "1rem" }}>or</div>
                         <div style={{ width: "70%", marginBottom: "1.2rem" }}>
