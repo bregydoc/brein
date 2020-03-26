@@ -18,6 +18,7 @@ type BrauthConfig struct {
 	RootUsername string
 	RootPassword string
 	SuccessURL string
+	CookieDomain string
 }
 
 type GlobalConfig struct {
@@ -68,6 +69,7 @@ func getGlobalConfigFromVault() (*GlobalConfig, error) {
 			RootUsername: data["rootUsername"].(string),
 			RootPassword: data["rootPassword"].(string),
 			SuccessURL: data["success_url"].(string),
+			CookieDomain: "minsky.cc",
 		}
 	}
 

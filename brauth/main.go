@@ -38,7 +38,7 @@ func main() {
 		config.CookieSecure = false
 	}
 
-	config.CookieDomain = "minsky.cc"
+	config.CookieDomain = vaultConfig.Brauth.CookieDomain
 	config.SuccessURL = vaultConfig.Brauth.SuccessURL
 
 	config.Oauth = map[string]map[string]string{
