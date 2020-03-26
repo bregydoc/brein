@@ -19,5 +19,5 @@ services:
       - brauth
     environment:
       DOMAINS: "brauth.minsky.cc -> http://brauth:6789"
-      # STAGE: "production"
+      STAGE: "production"
       #FORCE_RENEW: "true"
