@@ -1,0 +1,20 @@
+- email: bregy.malpartida@utec.edu.pe
+  origin: github
+  claims:
+    role: admin
+    projects: [brein]
+- email: aconchauriol@gmail.com
+  origin: github
+  claims:
+    role: tester
+    projects: [brein]
+- email: naranjja@gmail.com
+  origin: github
+  claims:
+    role: tester
+    projects: [brein]
+- email: j29.rios@gmail.com
+  origin: github
+  claims:
+    role: tester
+    projects: [brein]
