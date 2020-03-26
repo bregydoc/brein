@@ -38,9 +38,9 @@ func main() {
 		config.CookieSecure = false
 	}
 
-	config.SuccessURL = "https://brein.minsky.cc/login"
+	config.SuccessURL = vaultConfig.Brauth.SuccessURL
 	config.TextLogging = true
-	
+
 	config.Oauth = map[string]map[string]string{
 		"github": {
 			"client_id": vaultConfig.Github.ClientID,

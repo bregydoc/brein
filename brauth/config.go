@@ -17,6 +17,7 @@ type BrauthConfig struct {
 	UserFilepath string
 	RootUsername string
 	RootPassword string
+	SuccessURL string
 }
 
 type GlobalConfig struct {
@@ -66,6 +67,7 @@ func getGlobalConfigFromVault() (*GlobalConfig, error) {
 			JWTSecret:    data["jwtSecret"].(string),
 			RootUsername: data["rootUsername"].(string),
 			RootPassword: data["rootPassword"].(string),
+			SuccessURL: data["success_url"].(string),
 		}
 	}
 
