@@ -38,6 +38,7 @@ func main() {
 		config.CookieSecure = false
 	}
 
+	config.CookieDomain = "brein.minsky.cc"
 	config.SuccessURL = vaultConfig.Brauth.SuccessURL
 	config.TextLogging = true
 
