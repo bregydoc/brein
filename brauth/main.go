@@ -45,7 +45,7 @@ func main() {
 		"github": {
 			"client_id": vaultConfig.Github.ClientID,
 			"client_secret": vaultConfig.Github.ClientSecret,
-			"redirect_uri": "https://brein.minsky.cc",
+			"redirect_uri": "https://brein.minsky.cc/login",
 		},
 	}
 	config.Backends = login.Options{
