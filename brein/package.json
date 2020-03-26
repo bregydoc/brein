@@ -1,4 +1,6 @@
 {
+    "name": "brein",
+    "license": "MIT",
     "scripts": {
         "dev": "next",
         "build": "next build",
