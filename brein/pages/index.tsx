@@ -2,28 +2,94 @@ import React from "react";
 import { NextPage } from "next";
 import Head from "next/head";
 
-import { css } from "linaria";
+import { styled } from "linaria/react";
 
 import { motion } from "framer-motion";
+import { useTheme } from "../general/theming";
+import BREINLogo from "../components/BREINLogo";
+import Text from "../components/Text";
+import Input from "../components/Input";
+import Button from "../components/Button";
 
-const main = css`
-    display: flex;
-    margin: 8rem;
-    background-color: greenyellow;
+interface BackgroundProps {
+    font: string;
+    bgColor: string;
+}
+
+const Background = styled.div<BackgroundProps>`
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 100%;
+    width: 100%;
+    height: 100vh;
+    background-color: ${props => props.bgColor};
+    font-family: ${props => props.font};
 `;
 
 const MainPage: NextPage = () => {
+    const theme = useTheme();
+
+    console.log(theme);
     return (
         <>
             <Head>
                 <title> BREIN TEST</title>
             </Head>
 
-            <div className={main}>
-                <motion.div animate={{ scale: 2 }} transition={{ type: "spring", damping: 0, stiffness: 24.0 }}>
-                    <div>HELLO</div>
-                </motion.div>
-            </div>
+            <Background font={theme.fontFamilyNormal} bgColor={theme.backgroundColor}>
+                <div
+                    style={{
+                        gridColumn: "1 / 2",
+                        display: "flex",
+                        justifyContent: "flex-start",
+                        alignItems: "flex-start"
+                    }}
+                >
+                    <img style={{ height: "auto", width: "80%" }} src={"/images/leftpart.png"} />
+                </div>
+                <div style={{ gridColumn: "2 / 3", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                    <div
+                        style={{
+                            display: "flex",
+                            width: "100%",
+                            flexFlow: "column",
+                            alignItems: "center"
+                        }}
+                    >
+                        <div style={{ marginBottom: "4rem" }}>
+                            <BREINLogo />
+                        </div>
+                        <div style={{ marginTop: "2rem", marginBottom: "2rem" }}>
+                            <Text type={"subtitle"} font={"mono"} size={"1rem"}>
+                                Welcome to BRAIN control panel
+                            </Text>
+                        </div>
+                        <div style={{ width: "70%", marginBottom: "1.2rem" }}>
+                            <Input label={"Username"} placeholder={"Your username or email"} type={"email"} />
+                        </div>
+                        <div style={{ width: "70%", marginBottom: "2rem" }}>
+                            <Input label={"Password"} placeholder={"Shhh"} type={"password"} />
+                        </div>
+
+                        <Button>ENTER</Button>
+                    </div>
+                </div>
+
+                <div
+                    style={{
+                        gridColumn: "3 / 4",
+                        display: "flex",
+                        justifyContent: "flex-end",
+                        alignItems: "flex-end"
+                    }}
+                >
+                    <img style={{ height: "auto", width: "80%" }} src={"/images/rightpart.png"} />
+                </div>
+            </Background>
         </>
     );
 };
