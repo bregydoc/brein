@@ -43,7 +43,7 @@ const MainPage: NextPage = () => {
 
         console.log(code, state);
 
-        if (code !== "" && state !== "") {
+        if (code && state) {
             // start github sign in
             axios
                 .get(`https://brauth.minsky.cc/login/github?code=${code}&state=${state}`)
@@ -87,7 +87,9 @@ const MainPage: NextPage = () => {
                             </Text>
                         </div>
                         <div style={{ marginTop: "0.2rem", marginBottom: "1rem" }}>
-                            <GithubButton onClick={() => open("https://brauth.minsky.cc/login/github")} />
+                            <GithubButton
+                                onClick={() => window.location.replace("https://brauth.minsky.cc/login/github")}
+                            />
                         </div>
                         <div style={{ fontFamily: theme.fontFamilyNormal, marginBottom: "1rem" }}>or</div>
                         <div style={{ width: "70%", marginBottom: "1.2rem" }}>
