@@ -25,6 +25,8 @@ services:
     brein:
         build: ./brein
         restart: always
+        environment:
+            JWT_SECRET: ${JWT_SECRET}
 
     portal:
         image: steveltn/https-portal
