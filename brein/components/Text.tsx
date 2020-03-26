@@ -28,15 +28,15 @@ const Text: FC<TextProps> = (props: TextProps) => {
     };
 
     if (props.type === "title") {
-        return <h1 style={{ ...style, fontWeight: "normal" }}>{props.children}</h1>;
+        return <h1 style={{ margin: 0, fontWeight: "normal", ...style }}>{props.children}</h1>;
     }
 
     if (props.type === "subtitle") {
-        return <h2 style={{ ...style, fontWeight: "normal" }}>{props.children}</h2>;
+        return <h2 style={{ margin: 0, fontWeight: "normal", ...style }}>{props.children}</h2>;
     }
 
     if (props.type === "body") {
-        return <p style={{ ...style, fontWeight: "normal" }}>{props.children}</p>;
+        return <p style={{ margin: 0, fontWeight: "normal", ...style }}>{props.children}</p>;
     }
 
     throw "invalid type";

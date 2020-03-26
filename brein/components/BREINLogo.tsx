@@ -2,11 +2,22 @@ import React, { FC } from "react";
 import { useTheme } from "../general/theming";
 import { motion } from "framer-motion";
 
-const BREINLogo: FC = () => {
+interface BREINLogo {
+    width?: string;
+    height?: string;
+}
+
+const BREINLogo: FC<BREINLogo> = (props: BREINLogo) => {
     const theme = useTheme();
 
     return (
-        <motion.svg width="252" height="103" viewBox="0 0 252 103" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <motion.svg
+            width={`${props.width || "252"}`}
+            height={`${props.height || "103"}`}
+            viewBox="0 0 252 103"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
             <motion.path
                 animate={{ fill: theme.textColor }}
                 initial={{ fill: theme.primaryColor }}
