@@ -40,7 +40,6 @@ func main() {
 
 	config.CookieDomain = "minsky.cc"
 	config.SuccessURL = vaultConfig.Brauth.SuccessURL
-	config.TextLogging = true
 
 	config.Oauth = map[string]map[string]string{
 		"github": {
