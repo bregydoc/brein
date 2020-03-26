@@ -1,42 +1,42 @@
 version: "3"
 services:
-  brauth:
-    build: ./brauth
-    restart: always
-    environment:
-      PRODUCTION: "true"
-      VAULT_ADDRESS: ${VAULT_ADDRESS}
-      VAULT_TOKEN: ${VAULT_TOKEN}
-    volumes:
-      - ./brauth:/etc/brauth
+    brauth:
+        build: ./brauth
+        restart: always
+        environment:
+            PRODUCTION: "true"
+            VAULT_ADDRESS: ${VAULT_ADDRESS}
+            VAULT_TOKEN: ${VAULT_TOKEN}
+        volumes:
+            - ./brauth:/etc/brauth
 
-  cubrein:
-    build: ./cubrein
-    restart: always
-    environment:
-      CUBEJS_DB_HOST: ${CUBEJS_DB_HOST}
-      CUBEJS_DB_NAME: ${CUBEJS_DB_NAME}
-      CUBEJS_DB_USER: ${CUBEJS_DB_USER}
-      CUBEJS_DB_PASS: ${CUBEJS_DB_PASS}
-      CUBEJS_WEB_SOCKETS: ${CUBEJS_WEB_SOCKETS}
-      CUBEJS_DB_TYPE: ${CUBEJS_DB_TYPE}
-      CUBEJS_API_SECRET: ${CUBEJS_API_SECRET}
+    cubrein:
+        build: ./cubrein
+        restart: always
+        environment:
+            CUBEJS_DB_HOST: ${CUBEJS_DB_HOST}
+            CUBEJS_DB_NAME: ${CUBEJS_DB_NAME}
+            CUBEJS_DB_USER: ${CUBEJS_DB_USER}
+            CUBEJS_DB_PASS: ${CUBEJS_DB_PASS}
+            CUBEJS_WEB_SOCKETS: ${CUBEJS_WEB_SOCKETS}
+            CUBEJS_DB_TYPE: ${CUBEJS_DB_TYPE}
+            CUBEJS_API_SECRET: ${CUBEJS_API_SECRET}
 
-  brein:
-    build: ./brein
-    restart: always
+    brein:
+        build: ./brein
+        restart: always
 
-  portal:
-    image: steveltn/https-portal
-    restart: always
-    ports:
-      - 80:80
-      - 443:443
-    links:
-      - brauth
-      - brein
-      - cubrein
-    environment:
-      DOMAINS: "brauth.minsky.cc -> http://brauth:6789, brein.minsky.cc -> http://brein:3000, cubrein.minsky.cc -> http://cubrein:"
-      STAGE: "production"
-      #FORCE_RENEW: "true"
+    portal:
+        image: steveltn/https-portal
+        restart: always
+        ports:
+            - 80:80
+            - 443:443
+        links:
+            - brauth
+            - brein
+            - cubrein
+        environment:
+            DOMAINS: "brauth.minsky.cc -> http://brauth:6789, brein.minsky.cc -> http://brein:3000, cubrein.minsky.cc -> http://cubrein:4000"
+            STAGE: "production"
+            #FORCE_RENEW: "true"
