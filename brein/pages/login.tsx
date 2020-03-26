@@ -52,7 +52,6 @@ const MainPage: NextPage = () => {
         }
     }, []);
 
-    console.log(theme);
     return (
         <>
             <Head>
