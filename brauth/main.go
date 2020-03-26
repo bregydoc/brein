@@ -38,7 +38,6 @@ func main() {
 		config.CookieSecure = false
 	}
 
-	config.CookieDomain = "brein.minsky.cc"
 	config.SuccessURL = vaultConfig.Brauth.SuccessURL
 	config.TextLogging = true
 
@@ -46,6 +45,7 @@ func main() {
 		"github": {
 			"client_id": vaultConfig.Github.ClientID,
 			"client_secret": vaultConfig.Github.ClientSecret,
+			"redirect_uri": "https://brein.minsky.cc",
 		},
 	}
 	config.Backends = login.Options{
