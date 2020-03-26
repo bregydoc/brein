@@ -1,5 +1,20 @@
 import axios from "axios";
 
+const insertParam = (key: string, value: string) => {
+    if (history.pushState) {
+        let searchParams = new URLSearchParams(window.location.search);
+        searchParams.set(key, value);
+        let newurl =
+            window.location.protocol +
+            "//" +
+            window.location.host +
+            window.location.pathname +
+            "?" +
+            searchParams.toString();
+        window.history.pushState({ path: newurl }, "", newurl);
+    }
+};
+
 const deleteCookie = async (name: string) => {
     // document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=minsky.cc";
     try {
@@ -11,4 +26,4 @@ const deleteCookie = async (name: string) => {
     }
 };
 
-export { deleteCookie };
+export { deleteCookie, insertParam };

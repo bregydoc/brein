@@ -44,9 +44,11 @@ const TopBar = styled.div`
 
 const Content = styled.div`
     grid-area: 2 / 2 / 10 / 10;
+    padding: 2rem;
     @media only screen and (max-width: 800px) {
         grid-area: 2 / 1 / 10 / 10;
     }
+    overflow: scroll;
 `;
 
 interface OptionProps {

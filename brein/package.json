@@ -8,9 +8,12 @@
     },
     "dependencies": {
         "@callstack/react-theme-provider": "^2.1.0",
+        "@cubejs-client/core": "^0.18.7",
+        "@cubejs-client/react": "^0.18.4",
         "@zeit/next-css": "^1.0.1",
         "add": "^2.0.6",
         "axios": "^0.19.2",
+        "bizcharts": "^3.5.8",
         "framer-motion": "^1.10.2",
         "jsonwebtoken": "^8.5.1",
         "linaria": "^1.3.3",
