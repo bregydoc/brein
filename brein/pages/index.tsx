@@ -10,6 +10,7 @@ import BREINLogo from "../components/BREINLogo";
 import Text from "../components/Text";
 import Input from "../components/Input";
 import Button from "../components/Button";
+import GithubButton from "../components/GithubButton";
 
 interface BackgroundProps {
     font: string;
@@ -63,11 +64,15 @@ const MainPage: NextPage = () => {
                         <div style={{ marginBottom: "4rem" }}>
                             <BREINLogo />
                         </div>
-                        <div style={{ marginTop: "2rem", marginBottom: "2rem" }}>
+                        <div style={{ marginTop: "2rem", marginBottom: "1rem" }}>
                             <Text type={"subtitle"} font={"mono"} size={"1rem"}>
                                 Welcome to BRAIN control panel
                             </Text>
                         </div>
+                        <div style={{ marginTop: "0.2rem", marginBottom: "1rem" }}>
+                            <GithubButton />
+                        </div>
+                        <div style={{ fontFamily: theme.fontFamilyNormal, marginBottom: "1rem" }}>or</div>
                         <div style={{ width: "70%", marginBottom: "1.2rem" }}>
                             <Input label={"Username"} placeholder={"Your username or email"} type={"email"} />
                         </div>
