@@ -27,14 +27,15 @@ Each folder in this repository saves one service related to the above components
 
 \* In normal conditions this projects needs to be executed into different repositories (isolated environments) and orchestrated with a container orchestrator (e.g. Kubernetes, Docker Swarm), but for the demo this is in a mono repo environment and managed by docker compose.
 
-** See the [Database README](./datasettools/README.md) for more information.
+** See the [Database README](./datasettools) for more information.
 
 
 
-Architecture Graphic
+### Architecture Graphic
 
 
 
 <p align="center">
   <img width="auto" height="400" src="./diagram.png">
 </p>
+
