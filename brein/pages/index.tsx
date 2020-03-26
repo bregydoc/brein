@@ -3,27 +3,21 @@ import { NextPage, NextPageContext } from "next";
 import Head from "next/head";
 import performLoginRedirect from "../general/loginator";
 
-interface HomePageProps {
-    claims: any;
-}
-const HomePage: NextPage<HomePageProps> = props => {
-    console.log(props.claims);
+const IndexPage: NextPage = () => {
     return (
         <>
             <Head>
-                <title>Homepage | BREIN</title>
+                <title>BREIN | Minsky</title>
             </Head>
             <div>
-                Homepage
-                <div></div>
+                <div>Hello World</div>
             </div>
         </>
     );
 };
 
-HomePage.getInitialProps = async (ctx: NextPageContext) => {
+IndexPage.getInitialProps = async (ctx: NextPageContext) => {
     const claims = await performLoginRedirect(ctx);
     return { claims };
 };
-
-export default HomePage;
+export default IndexPage;

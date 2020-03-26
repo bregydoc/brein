@@ -29,7 +29,7 @@ const themes: BREINThemes = {
         inputPlaceholderFocusColor: "#86BAA9",
 
         primaryColor: "#A3EBD5",
-        secondaryColor: "#E1E7F8",
+        secondaryColor: "#2d3243",
         fontFamilyMono: `"PT Mono", monospace`,
         fontFamilyNormal: `'Open Sans', sans-serif`
     },
