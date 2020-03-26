@@ -171,7 +171,7 @@ const LoginPage: NextPage<LoginPageProps> = (props: LoginPageProps) => {
                                 style={{ marginTop: "1.2rem", cursor: "pointer", padding: "0" }}
                                 onClick={() => {
                                     deleteCookie("jwt_token");
-                                    window.location.replace("/");
+                                    window.location.replace("/login");
                                 }}
                             >
                                 <Text type="body" font="mono" color={theme.primaryColor}>
