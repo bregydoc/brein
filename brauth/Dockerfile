@@ -12,7 +12,6 @@ COPY . .
 
 RUN go build -a --ldflags '-linkmode external -extldflags "-static"' .
 
-RUN ls -la
 # ----------
 
 FROM alpine:3.11
