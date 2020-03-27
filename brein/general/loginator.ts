@@ -36,16 +36,16 @@ export const performLoginRedirect = async (ctx: NextPageContext) => {
 
     const claims = res.data.claims;
 
-    if (claims.role !== "admin" && claims.role !== "tester") {
-        if (ctx.res) {
-            ctx.res.writeHead(302, {
-                Location: "/login",
-                "Content-Type": "text/html; charset=utf-8"
-            });
-            ctx.res.end();
-        }
-        return { claims };
-    }
+    // if (claims.role !== "admin" && claims.role !== "tester") {
+    //     if (ctx.res) {
+    //         ctx.res.writeHead(302, {
+    //             Location: "/login",
+    //             "Content-Type": "text/html; charset=utf-8"
+    //         });
+    //         ctx.res.end();
+    //     }
+    //     return { claims };
+    // }
 
     return { claims };
 };
