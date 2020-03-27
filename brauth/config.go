@@ -8,7 +8,7 @@ import (
 )
 
 type GithubConfig struct {
-	ClientID string
+	ClientID     string
 	ClientSecret string
 }
 
@@ -17,7 +17,7 @@ type BrauthConfig struct {
 	UserFilepath string
 	RootUsername string
 	RootPassword string
-	SuccessURL string
+	SuccessURL   string
 	CookieDomain string
 }
 
@@ -40,6 +40,7 @@ func getGlobalConfigFromVault() (*GlobalConfig, error) {
 	tape := client.Logical()
 
 	brauth := "kv/data/brauth"
+	// brauth := "kv/data/brauth"
 
 	github, err := tape.Read(brauth + "/github")
 	if err != nil {
@@ -68,7 +69,7 @@ func getGlobalConfigFromVault() (*GlobalConfig, error) {
 			JWTSecret:    data["jwtSecret"].(string),
 			RootUsername: data["rootUsername"].(string),
 			RootPassword: data["rootPassword"].(string),
-			SuccessURL: data["success_url"].(string),
+			SuccessURL:   data["success_url"].(string),
 			CookieDomain: "minsky.cc",
 		}
 	}
