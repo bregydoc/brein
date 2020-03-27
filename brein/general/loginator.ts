@@ -2,8 +2,9 @@ import axios, { AxiosResponse } from "axios";
 import { NextPageContext } from "next";
 
 export const generateTokenByUsernameAndPassword = async (username: string, password: string) => {
+    console.log("generating userpass token");
     try {
-        const res = await axios.post(`http://127.0.0.1:30000/api/login`, {
+        const res = await axios.post(`https://brein.minsky.cc/api/login`, {
             username,
             password
         });
