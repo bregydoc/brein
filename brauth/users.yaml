@@ -18,3 +18,8 @@
   claims:
     role: tester
     projects: [brein]
+- sub: alvarorcu
+  origin: github
+  claims:
+    role: tester
+    projects: [brein]
