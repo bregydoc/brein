@@ -12,7 +12,7 @@ import Input from "../components/Input";
 import Button from "../components/Button";
 import GithubButton from "../components/GithubButton";
 import axios, { AxiosResponse } from "axios";
-import performLoginRedirect from "../general/loginator";
+import { generateTokenByUsernameAndPassword } from "../general/loginator";
 import { css } from "linaria";
 import { deleteCookie } from "../general/utils";
 
@@ -63,7 +63,21 @@ const LoginPage: NextPage<LoginPageProps> = (props: LoginPageProps) => {
     const [loading, setLoading] = useState(false);
     const theme = useTheme();
 
+    const [username, setUsername] = useState<string>("");
+    const [password, setPassword] = useState<string>("");
+
     console.log(props.status);
+
+    const login = (username: string, password: string) => {
+        generateTokenByUsernameAndPassword(username, password)
+            .then(r => {
+                console.log(r);
+                window.location.replace("/");
+            })
+            .catch(err => {
+                console.log("err", err);
+            });
+    };
 
     return (
         <>
@@ -138,13 +152,33 @@ const LoginPage: NextPage<LoginPageProps> = (props: LoginPageProps) => {
                             </div>
                             <div style={{ fontFamily: theme.fontFamilyNormal, marginBottom: "1rem" }}>or</div>
                             <ResponsiveContainer>
-                                <Input label={"Username"} placeholder={"Your username or email"} type={"email"} />
+                                <Input
+                                    label={"Username"}
+                                    placeholder={"Your username or email"}
+                                    type={"email"}
+                                    value={username}
+                                    //@ts-ignore
+                                    onChange={e => setUsername(e.target.value)}
+                                />
                             </ResponsiveContainer>
                             <ResponsiveContainer>
-                                <Input label={"Password"} placeholder={"Shhh"} type={"password"} />
+                                <Input
+                                    label={"Password"}
+                                    placeholder={"Shhh"}
+                                    type={"password"}
+                                    value={password}
+                                    //@ts-ignore
+                                    onChange={e => setPassword(e.target.value)}
+                                />
                             </ResponsiveContainer>
 
-                            <Button>ENTER</Button>
+                            <Button
+                                onClick={() => {
+                                    login(username, password);
+                                }}
+                            >
+                                ENTER
+                            </Button>
                         </div>
                     )}
                     {props.status === "authorized" && (

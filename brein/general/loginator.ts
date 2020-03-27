@@ -1,7 +1,21 @@
 import axios, { AxiosResponse } from "axios";
 import { NextPageContext } from "next";
 
-const performLoginRedirect = async (ctx: NextPageContext) => {
+export const generateTokenByUsernameAndPassword = async (username: string, password: string) => {
+    try {
+        const res = await axios.post(`http://127.0.0.1:30000/api/login`, {
+            username,
+            password
+        });
+        console.log(res.status);
+        console.log(res.data);
+        return res;
+    } catch (err) {
+        console.log(err);
+    }
+};
+
+export const performLoginRedirect = async (ctx: NextPageContext) => {
     let res: AxiosResponse;
 
     try {
