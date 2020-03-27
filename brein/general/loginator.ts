@@ -44,7 +44,7 @@ export const performLoginRedirect = async (ctx: NextPageContext) => {
             });
             ctx.res.end();
         }
-        return {};
+        return { claims };
     }
 
     return { claims };

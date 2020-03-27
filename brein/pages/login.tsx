@@ -245,9 +245,10 @@ LoginPage.getInitialProps = async (ctx: NextPageContext) => {
 
     const claims = res.data.claims;
 
-    if (claims.role !== "admin" && claims.role !== "tester") {
-        return { status: "not_approved" } as LoginPageProps;
-    }
+    // TODO: Fix it
+    // if (claims.role !== "admin" && claims.role !== "tester") {
+    //     return { status: "not_approved" } as LoginPageProps;
+    // }
 
     return { status: "authorized", claims } as LoginPageProps;
 };
